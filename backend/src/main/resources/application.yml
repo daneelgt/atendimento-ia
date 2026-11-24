@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: atendimento-ia
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/atendimento}
+    username: ${DB_USER:atendimento}
+    password: ${DB_PASSWORD:atendimento}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+server:
+  port: 8080
+
+app:
+  ia:
+    # fake = classificador local por palavras-chave (sem chave); api = provedor compatível com OpenAI (Gemini, Groq, Ollama...)
+    provedor: ${IA_PROVEDOR:fake}
+    url: ${IA_URL:https://generativelanguage.googleapis.com/v1beta/openai/chat/completions}
+    modelo: ${IA_MODELO:gemini-2.5-flash}
+    api-key: ${IA_API_KEY:}
+    timeout-segundos: ${IA_TIMEOUT_SEGUNDOS:20}
+    versao-prompt: v1
+  processamento:
+    agendador-habilitado: true
+    intervalo-ms: 5000
+    tamanho-lote: 20
+    max-tentativas: 8
+    backoff-inicial-segundos: 30
+    backoff-maximo-segundos: 600
+    confianca-minima: 0.70
+    travado-apos-minutos: 5
+  avaliacao:
+    dataset: avaliacao/dataset-v1.json
+    intervalo-entre-chamadas-ms: ${AVALIACAO_INTERVALO_MS:0}

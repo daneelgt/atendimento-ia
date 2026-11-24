@@ -1,0 +1,4 @@
+app:
+  processamento:
+    agendador-habilitado: false
+    max-tentativas: 3
