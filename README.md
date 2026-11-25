@@ -8,6 +8,37 @@ Sistema de atendimento ao cliente que usa IA para **classificar, priorizar e enc
 
 ---
 
+## Telas
+
+### Painel
+Indicadores da fila e distribuição por departamento e prioridade, atualizados a cada 5 segundos.
+
+![Painel](docs/screenshots/painel.png)
+
+### Atendimentos
+Lista com a classificação feita pela IA (categoria, prioridade, departamento e confiança) e o status de cada mensagem.
+
+![Atendimentos](docs/screenshots/atendimentos.png)
+
+### Revisão humana
+Detalhe de um atendimento com baixa confiança: resposta sugerida pela IA, aprovação, reclassificação, encaminhamento manual e histórico.
+
+![Detalhe do atendimento](docs/screenshots/detalhe.png)
+
+### Avaliação da IA
+Execução do classificador contra um dataset rotulado: acurácia, precisão/recall por categoria, matriz de confusão e casos com erro.
+
+![Avaliação da IA](docs/screenshots/avaliacao.png)
+
+### Simular mensagem
+Simula o canal de entrada do cliente.
+
+![Simular mensagem](docs/screenshots/simular.png)
+
+> Prints feitos com o classificador local `fake` (sem chave de API).
+
+---
+
 ## Como executar
 
 Pré-requisitos: Java 21, Maven, Node 18+ e Docker.
